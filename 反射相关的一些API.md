@@ -30,7 +30,7 @@
 ---|---|---
 Object|invoke(Object implictParameter,Object[] explicitParamenters)|调用这个对象所描述的方法，传递给定参数，并返回方法的返回值。对于静态方法，把null作为隐式参数传递。在使用包装器传递基本类型时，基本类型的返回值必须是未包装的
 ## ==java.lang.reflect.Modifier==
- 返回值 | 方法  | 描述 | 
+ 返回值 | 方法  | 描述 | 属性
 ---|---|---|---
 String|toString(int modifiers)|static
 boolean|isAbstract(int modifiers)|static
@@ -56,9 +56,10 @@ void|setXXX(Object array,int index,XXX newValue)|同上，xxx是boolean,byte,cha
 int|getLength(Object array)|返回数组的长度
 Object|newInstance(Class componentType,int length)|返回具有给定类型的一维数组
 Object|newInstance(Class componetType,int[]lengths)|返回具有给定类型的多维数组
+
 ## ==Constructor、Filed、Constructor==
  返回值 | 方法  | 描述
----|---|---|---
+---|---|---
  Class|getDeclaringClass()| 返回一个用于描述类中定义的构造器、方法或域的Class对象 
  Class[]|getExceptionTypes()（在Constructor和Method中）| 用于描述方法抛出的异常类型的Class数组
  int|getModifiers()|返回一个用于描述构造器、方法或域的修饰符的整型数值。使用Modifier类中的这个方法可以分析这个返回值
