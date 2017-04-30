@@ -17,17 +17,17 @@
  
 ## ==java.lang.Constructor==
  返回值 | 方法  | 描述 
----|---|---|---
+---|---|---
  Object|newInstatce(Object[] args) | 构造一个这个构造器所属类的新实例  
  
 ## ==java.lang.reflect.Field==
  返回值 | 方法  | 描述 
----|---|---|---
+---|---|---
  Object|get(Object obj)|返回obj对象中Field对象表示的域值
  Object|set(Object obj,Object newValue)|用一个新的值设置obj对象中Field对象表示的域
 ## ==java.lang.reflect.Method==
  返回值 | 方法  | 描述 
----|---|---|---
+---|---|---
 Object|invoke(Object implictParameter,Object[] explicitParamenters)|调用这个对象所描述的方法，传递给定参数，并返回方法的返回值。对于静态方法，把null作为隐式参数传递。在使用包装器传递基本类型时，基本类型的返回值必须是未包装的
 ## ==java.lang.reflect.Modifier==
  返回值 | 方法  | 描述 | 
