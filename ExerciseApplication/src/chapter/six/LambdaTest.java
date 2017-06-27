@@ -11,6 +11,7 @@ import java.util.Date;
 public class LambdaTest {
 
     public static void main(String[] args){
+        ss((a,b,c)->System.out.println("ssss"+a));
         String[] planets = new String[]{"Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"};
         System.out.println(Arrays.toString(planets));
         System.out.println("Sorted in dictionary order:");
@@ -35,5 +36,18 @@ public class LambdaTest {
 //        thread.start();
         JOptionPane.showMessageDialog(null,"Quit program?");
         System.exit(0);
+
+
+
+    }
+
+
+    private static void ss(DD d){
+        d.f(1,2,3);
+    }
+
+
+    interface DD{
+        void f(int a,int b,int c);
     }
 }
