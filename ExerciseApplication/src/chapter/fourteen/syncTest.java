@@ -6,7 +6,7 @@ package chapter.fourteen;
 public class syncTest {
 
     public static void main(String[] args){
-        Thread thread1,thread2,thread3;
+        Thread thread1,thread2,thread3,thread4;
         A a = new A();
         thread1 = new Thread(()->{
             a.a();
@@ -20,9 +20,14 @@ public class syncTest {
             a.c();
         });
 
-        thread1.start();
-        thread2.start();
+        thread4 = new Thread(()->{
+            a.d();
+        });
+
+//        thread1.start();
+//        thread2.start();
         thread3.start();
+        thread4.start();
     }
 
 
@@ -49,6 +54,12 @@ public class syncTest {
         synchronized public static void c(){
             while (true){
                 System.out.println("fc");
+            }
+        }
+
+        synchronized public void d(){
+            while(true){
+                System.out.println("fd");
             }
         }
     }
