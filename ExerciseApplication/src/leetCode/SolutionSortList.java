@@ -2,11 +2,12 @@ package leetCode;
 
 /**
  * Created by zzq on 17-7-12.
- * Sort a linked list in O(n log n) time using constant space complexity.
- * merge sort
+ * 1.Sort a linked list in O(n log n) time using constant space complexity.
+ * merge sort {@link SolutionSortList#sortList(ListNode)}
+ * 2.Sort a linked list using insertion sort.{@link SolutionSortList#insertionSortList(ListNode)}
  */
 public class SolutionSortList {
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
@@ -61,5 +62,27 @@ public class SolutionSortList {
         }
 
         return newHead;
+    }
+
+
+    public ListNode insertionSortList(ListNode head) {
+        if(head == null || head.next == null)
+            return head;
+        ListNode  tmp = new ListNode(0);
+        ListNode p,q,t;
+        while(head!=null){
+            p = tmp;
+            q = p.next;
+            t = head;
+            head = head.next;
+            while(q != null && q.val < t.val){
+                p = p.next;
+                q = q.next;
+            }
+            t.next = q;
+            p.next = t;
+        }
+        return tmp.next;
+
     }
 }
