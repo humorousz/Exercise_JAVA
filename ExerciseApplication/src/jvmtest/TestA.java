@@ -1,4 +1,4 @@
-package jvmTest;
+package jvmtest;
 
 /**
  * Created by zhangzhiquan on 2017/12/12.
