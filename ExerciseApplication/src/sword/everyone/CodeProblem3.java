@@ -38,6 +38,19 @@ public class CodeProblem3 {
         return res;
     }
 
+    /**
+     * 递归解决
+     * @param node
+     * @param integers
+     */
+    private void revert(ListNode node,ArrayList<Integer> integers){
+        if(node == null){
+            return;
+        }
+        revert(node.next,integers);
+        integers.add(node.val);
+    }
+
     public static void main(String[] args){
         CodeProblem3 obj = new CodeProblem3();
         ListNode node1 = new ListNode(1);
