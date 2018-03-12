@@ -20,16 +20,15 @@ public class Solution {
     }
 
     public static void main(String[] args){
-//        Solution solution = new Solution();
-//        solution.findParent(4,10);
-//        B b = new B();
-        int[] nums = new int[]{1,2,3,4,5,6,7,8,9};
-        List<String> list = sub(nums);
-        Arrays.sort(list.toArray());
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+//        int[] nums = new int[]{1,2,3,4,5,6,7,8,9};
+//        List<String> list = sub(nums);
+//        Arrays.sort(list.toArray());
+//        Iterator<String> iterator = list.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
+        Solution solution = new Solution();
+        solution.findParent(1,2);
     }
 
     private void findParent(int x,int y){
@@ -46,15 +45,16 @@ public class Solution {
         node1.left = node2;
         node1.right = node3;
         node2.left = node4;
-        node2.right = node5;
-        node3.left  = node6;
-        node3.right = node7;
-        node4.left = node8;
-        node4.right = node9;
-        node5.left = node10;
-        ArrayList<Integer> list = new ArrayList<>();
-        findPath(node1,list,10);
-        findPath(node1,list,6);
+//        node2.right = node5;
+//        node3.left  = node6;
+//        node3.right = node7;
+//        node4.left = node8;
+//        node4.right = node9;
+//        node5.left = node10;
+//        ArrayList<Integer> list = new ArrayList<>();
+//        findPath(node1,list,10);
+//        findPath(node1,list,6);
+        f(node1);
 
     }
 
@@ -104,6 +104,33 @@ public class Solution {
         }
 
         return  null;
+    }
+
+    /**
+     * 打印树所有路径组成的数
+     */
+    List<Integer> integers = new ArrayList<>();
+    private void f(TreeNode node){
+        if(node == null){
+            return;
+        }
+        if(node.right == null && node.left==null){
+            integers.add(node.val);
+            for(int i : integers){
+                System.out.print(i);
+            }
+            System.out.println();
+        }else {
+            integers.add(node.val);
+            if(node.left!=null){
+                f(node.left);
+            }
+            if(node.right!=null){
+                f(node.right);
+            }
+        }
+        integers.remove(new Integer(node.val));
+
     }
 
     static class A {
