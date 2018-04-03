@@ -1,3 +1,4 @@
+import com.google.protobuf.InvalidProtocolBufferException;
 import main.java.PersonInfo;
 
 /**
@@ -9,8 +10,22 @@ public class Test {
                 .setId(1)
                 .setName("zz")
                 .setEmail("dddd").build();
+        System.out.println("===========Person Byte==========");
+        for(byte b : person.toByteArray()){
+            System.out.print(b);
+        }
+        System.out.println();
+        System.out.println(person.toByteString());
+        System.out.println("================================");
 
-        System.out.println(person);
-
+        //模拟接收Byte[]，反序列化成Person类
+        byte[] byteArray =person.toByteArray();
+        PersonInfo.Person p2 = null;
+        try {
+            p2 = PersonInfo.Person.parseFrom(byteArray);
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+        }
+        System.out.println("after :" +p2.toString());
     }
 }
