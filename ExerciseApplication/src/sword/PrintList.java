@@ -1,5 +1,7 @@
 package sword;
 
+import java.awt.*;
+
 /**
  * Created by zhangzhiquan on 2018/3/13.
  */
@@ -22,7 +24,7 @@ public class PrintList {
         }
         PrintList obj = new PrintList();
         obj.printList(node);
-        obj.printList(obj.f(node));
+        obj.printList(obj.nf2(node));
     }
 
 
@@ -57,4 +59,49 @@ public class PrintList {
         newHead = head;
         return newHead;
     }
+
+    ListNode nf(ListNode node){
+        if(node == null || node.next == null){
+            return node;
+        }
+        ListNode newHead = null;
+        while (node != null){
+            ListNode tmp = node;
+            node = node.next;
+            tmp.next = newHead;
+            newHead = tmp;
+        }
+        return newHead;
+    }
+
+    ListNode nf2(ListNode node){
+        if(node == null || node.next == null){
+            return node;
+        }
+        ListNode newHead = null;
+        while (node != null){
+            ListNode tmp = node.next;
+            node.next = newHead;
+            newHead = node;
+            node = tmp;
+        }
+        return newHead;
+    }
+
+    ListNode df(ListNode node){
+        if(node == null || node.next == null){
+            return node;
+        }
+        ListNode fff = node.next;
+        node.next = null;
+        ListNode newHead = df(fff);
+        ListNode tmp =newHead;
+        while (tmp .next !=null){
+            tmp= tmp.next;
+        }
+        tmp.next = node;
+        return newHead;
+    }
+
+
 }
