@@ -14,19 +14,19 @@ import java.util.Set;
  */
 public class TimeClient {
     public static void main(String[] args) {
-        int port = 8810;
-        new Thread(new TimeClinetHandle("127.0.0.1",port)).start();
+        int port = 8899;
+        new Thread(new TimeClientHandler("127.0.0.1",port)).start();
 
     }
 
-    public static class TimeClinetHandle implements Runnable{
+    public static class TimeClientHandler implements Runnable{
         private String host;
         private int port;
         private Selector selector;
         private SocketChannel socketChannel;
         private volatile boolean stop;
 
-        public TimeClinetHandle(String host,int port){
+        public TimeClientHandler(String host, int port){
             this.host = host == null ? "127.0.0.1":host;
             this.port = port;
             try {
@@ -38,15 +38,16 @@ public class TimeClient {
                 System.exit(1);
             }
         }
+
         @Override
         public void run() {
             try {
                 doConnect();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
                 System.exit(1);
             }
-            while (!stop){
+            while (!stop) {
                 try {
                     selector.select(1000);
                     Set<SelectionKey> selectionKeys = selector.selectedKeys();
